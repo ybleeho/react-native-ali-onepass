@@ -259,6 +259,7 @@ RCT_EXPORT_METHOD(setUIConfig:(NSDictionary *)config resolve:(RCTPromiseResolveB
     tXCustomModel.autoHideLoginLoading = NO; // 与安卓保持一致
     NSString *logBtnMarginLeftAndRight = [config objectForKey:[self methodName2KeyName:@"setLogBtnMarginLeftAndRight"]];
     NSString *logBtnOffsetY = [config objectForKey:[self methodName2KeyName:@"setLogBtnOffsetY"]];
+    NSString *logBtnHeight = [config objectForKey:[self methodName2KeyName:@"setLogBtnHeight"]];
     tXCustomModel.loginBtnFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
         CGFloat x = frame.origin.x;
         CGFloat y = frame.origin.y;
@@ -266,6 +267,9 @@ RCT_EXPORT_METHOD(setUIConfig:(NSDictionary *)config resolve:(RCTPromiseResolveB
         CGFloat height = frame.size.height;
         if (logBtnOffsetY != nil) {
             y = [logBtnOffsetY floatValue];
+        }
+        if(logBtnHeight != nil) {
+            height = [logBtnHeight floatValue];
         }
         if (logBtnMarginLeftAndRight != nil) {
             width = screenSize.width - [logBtnMarginLeftAndRight floatValue] * 2;
@@ -464,6 +468,7 @@ RCT_EXPORT_METHOD(setDialogUIConfig:(NSDictionary *)config resolve:(RCTPromiseRe
     tXCustomModel.autoHideLoginLoading = NO; // 与安卓保持一致
     NSString *logBtnMarginLeftAndRight = [config objectForKey:[self methodName2KeyName:@"setLogBtnMarginLeftAndRight"]];
     NSString *logBtnOffsetY = [config objectForKey:[self methodName2KeyName:@"setLogBtnOffsetY"]];
+    NSString *logBtnHeight = [config objectForKey:[self methodName2KeyName:@"setLogBtnHeight"]];
     tXCustomModel.loginBtnFrameBlock = ^CGRect(CGSize screenSize, CGSize superViewSize, CGRect frame) {
         CGFloat x = frame.origin.x;
         CGFloat y = frame.origin.y;
@@ -471,6 +476,9 @@ RCT_EXPORT_METHOD(setDialogUIConfig:(NSDictionary *)config resolve:(RCTPromiseRe
         CGFloat height = frame.size.height;
         if (logBtnOffsetY != nil) {
             y = [logBtnOffsetY floatValue];
+        }
+        if(logBtnHeight != nil) {
+            height = [logBtnHeight floatValue];
         }
         if (logBtnMarginLeftAndRight != nil) {
             width = screenSize.width - [logBtnMarginLeftAndRight floatValue] * 2;
